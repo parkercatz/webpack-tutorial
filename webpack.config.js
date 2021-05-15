@@ -30,6 +30,13 @@ module.exports = {
         use: ['style-loader', 'css-loader'], // 後ろから実行されるため注意
       },
       {
+        test: /\.scss$/,
+        /**
+         * sass-loader = sassをcssへ変換するためのモジュール
+         */
+        use: ['style-loader', 'css-loader', 'sass-loader'], // 後ろから実行されるため注意
+      },
+      {
         test: /\.(jpe?g|png|gif|svg|ico)$/i,
         /**
          * url-loader = 画像ファイルやsvgファイルをDataUrl形式に変換して、jsファイルの一部として、プロジェクト内に取り込める
