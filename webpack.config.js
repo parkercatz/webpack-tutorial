@@ -19,4 +19,7 @@ module.exports = {
     filename: 'main.js', // バンドルしたファイルの名前
     path: outputPath, // 出力先（絶対パス）
   },
+  devServer: {
+    contentBase: outputPath, // ドキュメントルートの設定
+  },
 }
