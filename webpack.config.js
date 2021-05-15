@@ -19,6 +19,18 @@ module.exports = {
     filename: 'main.js', // バンドルしたファイルの名前
     path: outputPath, // 出力先（絶対パス）
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        /**
+         * style-loader = jsの中にあるcss文字列をDOMに挿入する役割、CSSをページに反映させるために必要
+         * css-loader = jsにあるcssのファイルを解決できる、jsファイル内で読み込まれるcssを文字列としてjsで使用できる。
+         */
+        use: ['style-loader', 'css-loader'], // 後ろから実行されるため注意
+      },
+    ],
+  },
   devServer: {
     contentBase: outputPath, // ドキュメントルートの設定
   },
