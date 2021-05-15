@@ -1,18 +1,4 @@
-import _ from 'lodash'
-import './style.css'
-import './style.scss'
-import thumbnail from './thumbnail.jpg'
+import React from 'react'
+import ReactDom from 'react-dom'
 
-function component() {
-  const element = document.createElement('div')
-  const array = ['Hello', 'webpack', '!!!!!!!!']
-  element.innerHTML = _.join(array, ' ')
-  return element
-}
-
-document.body.appendChild(component())
-document.body.classList.add('bg')
-
-const image = new Image()
-image.src = thumbnail
-document.body.appendChild(image)
+ReactDom.render(<div>Hello React</div>, document.getElementById('root'))

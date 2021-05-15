@@ -4,6 +4,7 @@
  * ・ ファイルやディレクトリのパスを操作できる
  */
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 /**
  * path.resolve = 絶対パスに変換
@@ -21,6 +22,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/, // 除外ファイル
+        loader: 'babel-loader', // トランスパイルの実行
+      },
       {
         test: /\.css$/,
         /**
@@ -49,9 +55,19 @@ module.exports = {
           name: './images/[name].[ext]',
         },
       },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+      },
     ],
   },
   devServer: {
     contentBase: outputPath, // ドキュメントルートの設定
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: './index.html',
+    }),
+  ],
 }
