@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import './style.css'
+import thumbnail from './thumbnail.jpg'
 
 function component() {
   const element = document.createElement('div')
@@ -10,3 +11,7 @@ function component() {
 
 document.body.appendChild(component())
 document.body.classList.add('bg')
+
+const image = new Image()
+image.src = thumbnail
+document.body.appendChild(image)

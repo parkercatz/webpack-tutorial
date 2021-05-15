@@ -29,6 +29,19 @@ module.exports = {
          */
         use: ['style-loader', 'css-loader'], // 後ろから実行されるため注意
       },
+      {
+        test: /\.(jpe?g|png|gif|svg|ico)$/i,
+        /**
+         * url-loader = 画像ファイルやsvgファイルをDataUrl形式に変換して、jsファイルの一部として、プロジェクト内に取り込める
+         * file-loader = url-loaderのようにファイルをjsにバンドルして、DataUrl形式に変換はしません。その代わりに、ファイルをリソースとして出力し、ファイルのパスを管理します。
+         */
+        loader: 'url-loader',
+        options: {
+          // file-loader option
+          limit: 2048, // 2kbを超えるサイズはnameで指定したものに分類される
+          name: './images/[name].[ext]',
+        },
+      },
     ],
   },
   devServer: {
