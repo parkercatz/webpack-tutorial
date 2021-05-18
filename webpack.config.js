@@ -6,6 +6,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 /**
  * path.resolve = 絶対パスに変換
@@ -75,5 +76,9 @@ module.exports = (env, argv) => {
         filename: '[name].[hash].css', //[name] = デフォルト, [hash] = ユニークな名前
       }),
     ],
+    optimization: {
+      minimize: true,
+      minimizer: [new CssMinimizerPlugin()],
+    },
   }
 }
