@@ -80,5 +80,6 @@ module.exports = (env, argv) => {
       minimize: true,
       minimizer: [new CssMinimizerPlugin()],
     },
+    devtool: 'eval-source-map',
   }
 }
