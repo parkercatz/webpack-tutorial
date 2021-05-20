@@ -29,6 +29,12 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
+          enforce: 'pre', //enforce: "pre"を付ければ一番早く処理される
+          test: /\.jsx?$/,
+          exclude: /node_modules/, // 除外ファイル
+          loader: 'eslint-loader',
+        },
+        {
           test: /\.jsx?$/,
           exclude: /node_modules/, // 除外ファイル
           loader: 'babel-loader', // トランスパイルの実行
